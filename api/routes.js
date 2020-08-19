@@ -17,4 +17,8 @@ module.exports = function (app) {
         .get(controller.getInvoice);
     app.route('/api/order')
         .get(controller.getOrder);
+    app.route('/api/payment')
+        .get(controller.getPayment);
+    app.route('/api/quotation')
+        .get(controller.getQuotation);
 };

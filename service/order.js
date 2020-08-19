@@ -21,10 +21,10 @@ var order = {
         if (entity_type != undefined) {
             if (entity_type == "customer") {
                 resource = `/api/resource/Sales Order/`;
-                fields = `&fields=["name","status","delivery_status","billing_status","transaction_date","${entity_type}","${entity_type}_name","currency","total_qty","net_total","total_taxes_and_charges","total"]`;
+                fields = `&fields=["name","status","delivery_status","billing_status","transaction_date","${entity_type}","${entity_type}_name","currency","total_qty","net_total","total_taxes_and_charges","grand_total"]`;
             } else if (entity_type == "supplier") {
                 resource = `/api/resource/Purchase Order/`;
-                fields = `&fields=["name","status","transaction_date","${entity_type}","${entity_type}_name","currency","total_qty","net_total","total_taxes_and_charges","total"]`;
+                fields = `&fields=["name","status","transaction_date","${entity_type}","${entity_type}_name","currency","total_qty","net_total","total_taxes_and_charges","grand_total"]`;
             }
             if (order_name != undefined) {
                 resource = resource + `${order_name}`;

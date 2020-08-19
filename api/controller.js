@@ -8,6 +8,8 @@ var supplier = require('../service/supplier');
 var item = require('../service/item');
 var invoice = require('../service/invoice');
 var order = require('../service/order');
+var payment = require('../service/payment');
+var quotation = require('../service/quotation');
 
 var controllers = {
     getCustomer: function (req, res) {
@@ -54,6 +56,20 @@ var controllers = {
     },
     getOrder: function (req, res) {
         order.find(req, res, function (err, response) {
+            if (err)
+                res.send(err);
+            res.send(response);
+        });
+    },
+    getPayment: function (req, res) {
+        payment.find(req, res, function (err, response) {
+            if (err)
+                res.send(err);
+            res.send(response);
+        });
+    },
+    getQuotation: function (req, res) {
+        quotation.find(req, res, function (err, response) {
             if (err)
                 res.send(err);
             res.send(response);
