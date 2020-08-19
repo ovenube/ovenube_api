@@ -1,4 +1,4 @@
-var request = require('request');
+var request = require('requestretry');
 
 var order = {
     find: function (req, res, next) {
@@ -69,6 +69,9 @@ var order = {
             var options = {
                 method: 'GET',
                 json: true,
+                timeout: 4000,
+                maxAttempts: 10,
+                retryDelay: 1000,
                 url: instanceURL + resource + filters + fields,
                 headers: headers
             }

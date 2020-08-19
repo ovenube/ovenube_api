@@ -1,4 +1,4 @@
-var request = require('request');
+var request = require('requestretry');
 
 var patient = {
     find: function (req, res, next) {
@@ -11,6 +11,9 @@ var patient = {
         var options = {
             method: 'GET',
             json: true,
+            timeout: 4000,
+            maxAttempts: 10,
+            retryDelay: 1000,
             url: instanceURL + `/api/resource/Patient/?filters=[["tax_id", "=", ${tax_id}]]&fields=["patient_name","tax_id"]`,
             headers: headers
         }
