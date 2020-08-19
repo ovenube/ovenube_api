@@ -70,10 +70,15 @@ var invoice = {
                             "response": r
                         });
                     } else {
-                        let error_message = JSON.parse(body._server_messages)[0];
-                        res.status(response.statusCode).send({
+                        let error_message;
+                        if (body == undefined) {
+                            error_message = error.message;
+                        } else {
+                            error_message = JSON.parse(JSON.parse(body._server_messages)[0]).message;
+                        }
+                        res.send({
                             "response": "No Invoice found",
-                            "error": JSON.parse(error_message).message
+                            "error": error_message
                         });
                     }
                 }

@@ -64,10 +64,15 @@ var item = {
                         "response": r
                     });
                 } else {
-                    let error_message = JSON.parse(body._server_messages)[0];
-                    res.status(response.statusCode).send({
-                        "response": "No item found",
-                        "error": JSON.parse(error_message).message
+                    let error_message;
+                    if (body == undefined) {
+                        error_message = error.message;
+                    } else {
+                        error_message = JSON.parse(JSON.parse(body._server_messages)[0]).message;
+                    }
+                    res.send({
+                        "response": "No Invoice found",
+                        "error": error_message
                     });
                 }
             }
