@@ -76,7 +76,7 @@ var payment = {
                         error_message = JSON.parse(JSON.parse(body._server_messages)[0]).message;
                     }
                     res.send({
-                        "response": "No payment found",
+                        "response": "No Payment found",
                         "error": error_message
                     });
                 }

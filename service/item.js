@@ -74,7 +74,7 @@ var item = {
                         error_message = JSON.parse(JSON.parse(body._server_messages)[0]).message;
                     }
                     res.send({
-                        "response": "No Invoice found",
+                        "response": "No Item found",
                         "error": error_message
                     });
                 }

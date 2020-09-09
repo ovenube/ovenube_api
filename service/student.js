@@ -14,7 +14,7 @@ var student = {
             timeout: 4000,
             maxAttempts: 10,
             retryDelay: 1000,
-            url: instanceURL + `/api/resource/Student/?filters=[["tax_id", "=", ${tax_id}]]&fields=["title","tax_id"]`,
+            url: instanceURL + `/api/resource/Student/?filters=[["tax_id", "=", ${tax_id}]]&fields=["name","title","tax_id"]`,
             headers: headers
         }
         request(options,
@@ -32,7 +32,7 @@ var student = {
                         error_message = JSON.parse(JSON.parse(body._server_messages)[0]).message;
                     }
                     res.send({
-                        "response": "No Invoice found",
+                        "response": "No Student found",
                         "error": error_message
                     });
                 }

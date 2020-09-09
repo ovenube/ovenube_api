@@ -14,7 +14,7 @@ var supplier = {
             timeout: 4000,
             maxAttempts: 10,
             retryDelay: 1000,
-            url: instanceURL + `/api/resource/Supplier/?filters=[["tax_id", "=", ${tax_id}]]&fields=["supplier_name","tax_id"]`,
+            url: instanceURL + `/api/resource/Supplier/?filters=[["tax_id", "=", ${tax_id}]]&fields=["name","supplier_name","tax_id"]`,
             headers: headers
         }
         request(options,
@@ -32,7 +32,7 @@ var supplier = {
                         error_message = JSON.parse(JSON.parse(body._server_messages)[0]).message;
                     }
                     res.send({
-                        "response": "No Invoice found",
+                        "response": "No Supplier found",
                         "error": error_message
                     });
                 }
