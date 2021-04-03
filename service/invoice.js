@@ -16,11 +16,12 @@ var invoice = {
         const to_date = req.body["to_date"];
         let filters = ``;
         let fields = ``;
+        let entity;
         if (entity_type != undefined) {
             if (entity_type == "customer" || entity_type == "patient") {
                 resource = `/api/resource/Sales Invoice/`;
-                entity_type = "customer";
-                fields = `&fields=["name","tipo_comprobante","posting_date","tax_id","status","${entity_type}","${entity_type}_name","currency","total_qty","net_total","total_taxes_and_charges","grand_total"]`;
+                entity = "customer";
+                fields = `&fields=["name","tipo_comprobante","posting_date","tax_id","status","${entity}","${entity}_name","currency","total_qty","net_total","total_taxes_and_charges","grand_total"]`;
             } else if (entity_type == "supplier") {
                 resource = `/api/resource/Purchase Invoice/`;
                 fields = `&fields=["name","tipo_comprobante","posting_date","tax_id","status","${entity_type}","${entity_type}_name","currency","total_qty","net_total","total_taxes_and_charges","grand_total"]`;
